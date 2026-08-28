@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Configurações básicas de codificação e responsividade para dispositivos móveis -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Gerente Financeiro</title>
+    
+    <!-- Importação do arquivo de estilos externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         MENU DE NAVEGAÇÃO LATERAL/SUPERIOR
+         ========================================== -->
+    <div class="menu-container">
+        <!-- Botão hambúrguer que abre/fecha o menu -->
+        <button type="button" id="botao-menu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Links para alternar entre as visões do sistema -->
+        <nav id="menu-principal" class="menu-principal" aria-label="Menu principal">
+            <a href="#configuracao-mensal">Tela inicial</a>
+            <a href="#minhas-financas">Minhas finanças</a>
+        </nav>
+    </div>
+
+    <!-- Cabeçalho Principal da Página -->
+    <header>
+        <h1>Meu Controle Financeiro</h1>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             SEÇÃO 1: CONFIGURAÇÃO DO MÊS E SALÁRIO
+             ========================================== -->
+        <section id="configuracao-mensal" class="tela-inicial">
+            <h2>Configuração do Mês</h2>
+            <p class="periodo-edicao">Mês em edição: <span id="mes-em-edicao">Junho de 2026</span></p>
+
+            <!-- Seleção de Mês -->
+            <div>
+                <label for="mes">Mês:</label>
+                <select id="mes">
+                    <option value="0">Janeiro</option>
+                    <option value="1">Fevereiro</option>
+                    <option value="2">Março</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Maio</option>
+                    <option value="5" selected>Junho</option>
+                    <option value="6">Julho</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Setembro</option>
+                    <option value="9">Outubro</option>
+                    <option value="10">Novembro</option>
+                    <option value="11">Dezembro</option>
+                </select>
+            </div>
+
+            <!-- Seleção de Ano -->
+            <div>
+                <label for="ano">Ano:</label>
+                <input type="number" id="ano" min="1900" max="2100" value="2026">
+            </div>
+
+            <!-- Entrada de Salário Base -->
+            <div>
+                <label for="salario">Salário do mês (R$):</label>
+                <input type="text" id="salario" inputmode="decimal" value="0,00">
+            </div>
+
+            <!-- Entrada de Renda Extra -->
+            <div>
+                <label for="ganhos-extra">Ganhos Extra (R$):</label>
+                <div class="campo-com-botao">
+                    <input type="text" id="ganhos-extra" inputmode="decimal" value="0,00">
+                    <button type="button" id="botao-salvar-ganhos-extra" class="botao-pequeno">Salvar</button>
+                </div>
+            </div>
+
+            <!-- Entrada de Teto de Gastos -->
+            <div>
+                <label for="limite-custo">Limite total de gastos no mês (R$):</label>
+                <input type="text" id="limite-custo" inputmode="decimal" value="0,00">
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SEÇÃO 2: PAINEL DE SALDOS E RESUMO
+             ========================================== -->
+        <section id="painel-saldos" class="tela-inicial">
+            <h2>Resumo do Mês</h2>
+            <div>
+                <p>Ganhos do Mês: <span id="saldo-inicial" class="valor-destaque">R$ 0,00</span></p>
+                <p>Limite de Gastos: <span id="limite-gastos" class="valor-destaque">R$ 0,00</span></p>
+                <p>Total Gasto: <span id="total-gasto" class="valor-destaque">R$ 0,00</span></p>
+                <p>Saldo Restante: <span id="saldo-restante" class="valor-destaque">R$ 0,00</span></p>
+                <!-- Alerta visual caso estoure o limite cadastrado -->
+                <p id="aviso-limite" class="aviso-limite">O limite de gastos do mês foi excedido.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SEÇÃO 3: FORMULÁRIO DE NOVO CUSTO
+             ========================================== -->
+        <section id="cadastro-gasto" class="tela-inicial">
+            <h2>Adicionar Novo Custo</h2>
+            <form id="form-gasto">
+                <div>
+                    <label for="dia">Data de vencimento:</label>
+                    <input type="text" id="dia" inputmode="numeric" maxlength="10" placeholder="__/__/____" required>
+                    <p id="aviso-data" class="aviso-data">Data inserida está incorreta.</p>
+                </div>
+
+                <div>
+                    <label for="valor">Valor (R$):</label>
+                    <input type="text" id="valor" inputmode="decimal" required>
+                </div>
+
+                <div>
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" required>
+                        <option value="">Selecione...</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Cartão">Cartão</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Aluguel">Aluguel</option>
+                        <option value="Água">Água</option>
+                        <option value="Energia">Energia</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" placeholder="Ex: IFood de hoje">
+                </div>
+
+                <div class="acoes-formulario">
+                    <button type="submit" id="botao-salvar">Salvar Custo</button>
+                    <button type="button" id="botao-cancelar-edicao" class="botao-secundario" hidden>Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ==========================================
+             SEÇÃO 4: HISTÓRICO DE CUSTOS LANÇADOS
+             ========================================== -->
+        <section id="historico" class="tela-inicial">
+            <div class="cabecalho-historico">
+                <h2>Histórico de Custos</h2>
+                <button type="button" id="botao-salvar-resumo" class="botao-salvar-resumo">Salvar</button>
+            </div>
+            <!-- Lista dinâmica gerada via JavaScript -->
+            <ul id="lista-gastos"></ul>
+        </section>
+
+        <!-- ==========================================
+             SEÇÃO 5: HISTÓRICO DE RESUMOS SALVOS
+             ========================================== -->
+        <section id="minhas-financas" class="tela-oculta">
+            <h2>Minhas finanças</h2>
+            <div id="resumos-salvos">
+                <p class="mensagem-vazia">Nenhum resumo salvo ainda.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Importação do arquivo de lógica em JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

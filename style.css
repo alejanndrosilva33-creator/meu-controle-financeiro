@@ -1,0 +1,377 @@
+/* ==========================================
+   ESTILOS GERAIS E RESET BÁSICO
+   ========================================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #4dc6c0;
+    color: #1f2933;
+}
+
+header, main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+section {
+    background: #fdfeff;
+    border: 2px solid #179d92;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 18px #228580f0;
+}
+
+/* ==========================================
+   MENU SUSPENSO E NAVEGAÇÃO
+   ========================================== */
+.menu-container {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+}
+
+.botao-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 46px;
+    height: 42px;
+    padding: 12px;
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #228580f0;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px #228580f0;
+}
+
+.botao-menu:hover,
+.botao-menu:focus {
+    background: #e6fffa;
+    outline: none;
+}
+
+.botao-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #1f2933;
+    border-radius: 999px;
+}
+
+.menu-principal {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    width: 190px;
+    margin-top: 8px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #339196;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px #228580f0;
+}
+
+.menu-principal.aberto {
+    display: flex;
+}
+
+.menu-principal a {
+    display: block;
+    padding: 10px 12px;
+    background: #f4f7f6;
+    border: 1px solid #bcccdc;
+    border-radius: 6px;
+    color: #1f2933;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-principal a:hover,
+.menu-principal a:focus {
+    background: #0e6a6d;
+    border-color: #127475;
+    color: #ffffff;
+    outline: none;
+}
+
+/* ==========================================
+   FORMULÁRIOS E CAMPOS DE ENTRADA
+   ========================================== */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input, select, button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #127475;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    background: #127475;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #127475;
+}
+
+.acoes-formulario {
+    display: flex;
+    gap: 10px;
+}
+
+.acoes-formulario button {
+    flex: 1;
+}
+
+.campo-com-botao {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.campo-com-botao input {
+    flex: 1;
+}
+
+.botao-pequeno {
+    width: auto;
+    padding: 10px 14px;
+    white-space: nowrap;
+}
+
+.botao-secundario {
+    background: #0d8579;
+}
+
+.botao-secundario:hover {
+    background: #127475;
+}
+
+/* ==========================================
+   INDICADORES VISUAIS E DADOS
+   ========================================== */
+.valor-destaque {
+    font-weight: bold;
+}
+
+.limite-excedido {
+    color: #eea316;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.salario-excedido {
+    color: #d12323;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.aviso-limite {
+    display: none;
+    margin-top: 8px;
+    color: #9d6805;
+    font-weight: bold;
+}
+
+.aviso-limite.ativo {
+    display: block;
+}
+
+.aviso-data {
+    display: none;
+    margin: -8px 0 14px;
+    color: #c62828;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.aviso-data.ativo {
+    display: block;
+}
+
+.periodo-edicao {
+    margin-top: 0;
+    padding: 10px;
+    background: #4dc6c0;
+    border-radius: 6px;
+    border: 1px solid #127475;
+    font-weight: bold;
+}
+
+/* ==========================================
+   LISTAS E CARDS DE HISTÓRICO
+   ========================================== */
+#lista-gastos {
+    padding-left: 20px;
+}
+
+#lista-gastos li {
+    margin-bottom: 8px;
+}
+
+.botao-editar {
+    width: auto;
+    margin: 0 0 0 8px;
+    padding: 6px 10px;
+    background: #486581;
+    font-size: 14px;
+}
+
+.botao-editar:hover {
+    background: #334e68;
+}
+
+.cabecalho-historico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.cabecalho-historico h2 {
+    margin: 0;
+}
+
+.botao-salvar-resumo {
+    width: auto;
+    min-width: 110px;
+    margin: 0;
+}
+
+.resumo-salvo {
+    padding: 14px;
+    margin-bottom: 12px;
+    background: #f4f7f6;
+    border: 1px solid #bcccdc;
+    box-shadow: 0 8px 18px #228580f0;
+    border-radius: 8px;
+}
+
+.resumo-salvo {
+    position: relative;
+}
+
+.resumo-salvo h3 {
+    margin: 0 0 10px;
+}
+
+.resumo-salvo p {
+    margin: 8px 0;
+}
+
+.acoes-resumo-salvo {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.botao-editar-resumo {
+    width: auto;
+    min-width: 90px;
+    margin: 0;
+    padding: 8px 12px;
+    background: #486581;
+    font-size: 14px;
+}
+
+.botao-editar-resumo:hover {
+    background: #127475;
+}
+
+.botao-excluir-resumo {
+  width: auto;        /* placeholder - será padronizado abaixo */
+}
+
+.botao-excluir-resumo:hover {
+    background: #a61b1b;
+}
+
+/* Substituição: padroniza container e os dois botões */
+.acoes-resumo-salvo {
+    display: flex;
+    justify-content: flex-end; /* Alinha à direita */
+    align-items: center;
+    gap: 10px;                 /* Espaçamento uniforme */
+    margin-top: 12px;
+}
+
+.botao-editar-resumo,
+.botao-excluir-resumo {
+    width: auto;
+    min-width: 90px;          /* mesma largura mínima para ambos */
+    height: 38px;             /* mesma altura fixa */
+    padding: 0 12px;
+    font-size: 14px;          /* texto unificado */
+    line-height: 1;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.botao-excluir-resumo {
+    position: absolute;
+    top: 14px;       /* Distância em relação ao topo do card */
+    right: 14px;     /* Distância em relação à direita do card */
+    background: #486581; /* Mude para vermelho (#a61b1b) se preferir destacar */
+    color: #ffffff;
+}
+
+.botao-editar-resumo {
+    background: #486581;
+}
+
+.botao-editar-resumo:hover {
+    background: #127475;
+}
+
+.botao-excluir-resumo:hover {
+    background: #a61b1b;
+}
+
+.mensagem-vazia {
+    margin: 0;
+    color: #52606d;
+    font-weight: bold;
+}
+
+.tela-oculta {
+    display: none;
+}
+
+#configuracao-mensal,
+#painel-saldos,
+#minhas-financas {
+    scroll-margin-top: 20px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
+   ========================================== */
+@media (max-width: 520px) {
+    .menu-container {
+        top: 10px;
+        left: 10px;
+    }
+
+    header {
+        padding-top: 64px;
+    }
+}
